@@ -30,7 +30,7 @@ int main(int argc, const char * argv[])
         add_token_to_list(token_list, token);
         print_token(token);
     }
-    while (???);//What is the sentinal value that ends this loop?
+    while (token != '\0');//What is the sentinal value that ends this loop?
     
     quit_scanner(source_file, token_list);
     return 0;
