@@ -58,5 +58,5 @@ static void print_page_header(char source_name[], char date[])
 }
 void print_token(Token *token)
 {
-    //Missing code goes here
+    printf("%s", token);// double check
 }
