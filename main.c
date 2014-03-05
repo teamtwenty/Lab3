@@ -41,7 +41,13 @@ void add_token_to_list(Token *list, Token *new_token)
 }
 void quit_scanner(FILE *src_file, Token *list)
 {
-    //write code to free all of the memory for the token list
+    Token *tmp;
+    while (list != NULL)
+    {
+       tmp = list;
+       list = list->next;
+       free(tmp);
+    }//write code to free all of the memory for the token list
 
     fclose(src_file);
 }
