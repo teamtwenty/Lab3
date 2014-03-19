@@ -172,26 +172,26 @@ static char* get_word(???)
      if it is not a reserved word its an identifier.
      */
 }
-static ??? get_number(???)
+static int get_number(???)
 {
     /*
      Write some code to Extract the number and convert it to a literal number.
      */
 }
-static ??? get_string(???)
+static char* get_string(???)
 {
     /*
      Write some code to Extract the string
      */
 }
-static ??? get_special(???)
+static char* get_special(???)
 {
     /*
      Write some code to Extract the special token.  Most are single-character
      some are double-character.  Set the token appropriately.
      */
 }
-static char downshift_word(char *ch)
+static char* downshift_word(char *ch)
 {
     /*
      Make all of the characters in the incoming word lower case.
