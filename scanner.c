@@ -20,8 +20,8 @@ static char* skip_blanks(char );
 static char get_word(char );
 static int get_number(int  );
 static char get_string(char );
-static ??? get_special(???);
-static ??? downshift_word(???);
+static char get_special(???);
+static char downshift_word(???);
 static BOOLEAN is_reserved_word(???);
 char array[MAX_SOURCE_LINE_LENGTH];
 
@@ -99,11 +99,11 @@ Token* get_token()
     char* token_ptr = token_string; //write some code to point this to the beginning of token_string
     Token* newToken;  //I am missing the most important variable in the function, what is it?  Hint: what should I return?
     
-    skip_blanks(ch); //1. Skip past all of the blanks
+    skip_blanks(); //1. Skip past all of the blanks
     
     if(ch == LETTER)
     {
-        get_char();
+        get_word(ch);
     }
     else if(ch == DIGIT)
     {
@@ -111,15 +111,15 @@ Token* get_token()
     }
     else if(ch == QUOTE)
     {
-        get_word(ch);
+        get_string(ch);
     }
     else if(ch == EOF)
     {
-        get_char(token_ptr);
+        get_special(ch);
     }
     else if(ch == SPECIAL)
     {
-        
+        get_special(ch);
     }//2.  figure out which case you are dealing with LETTER, DIGIT, QUOTE, EOF, or special, by examining ch
     //3.  Call the appropriate function to deal with the cases in 2.
     
@@ -127,8 +127,14 @@ Token* get_token()
 }
 static char get_char(char *ch)
 {
-    
-    while(
+    if(ch == '\' && ch == 'n')
+    {
+        get_source_line();
+    }
+    if(ch == EOF)
+    {
+        return 0;
+    }
     /*
      If at the end of the current line (how do you check for that?),
      we should call get source line.  If at the EOF (end of file) we should
@@ -138,28 +144,40 @@ static char get_char(char *ch)
     /*
      Write some code to set the character ch to the next character in the buffer
      */
+    ch++;
 }
 static char* skip_blanks(char ch)
 {
     
-    while()
+    while(ch == ' ')
     {
-        
+        ch++;
     }
+    return *ch;
     /*
      Write some code to skip past the blanks in the program and return a pointer
      to the first non blank character
      */
     
 }
-static char* skip_comment(???)
+static char* skip_comment(char *ch)
 {
+    
+    if(ch == '{')
+    {
+        while(ch != '}')
+        {
+            ch++;
+        }
+    }
+    
+    return ch;
     /*
      Write some code to skip past the comments in the program and return a pointer
      to the first non blank character.  Watch out for the EOF character.
      */
 }
-static char* get_word(???)
+static char get_word(char ch)
 {
     /*
      Write some code to Extract the word
@@ -178,21 +196,31 @@ static int get_number(???)
      Write some code to Extract the number and convert it to a literal number.
      */
 }
-static char* get_string(???)
+static char get_string(???)
 {
     /*
      Write some code to Extract the string
      */
 }
-static char* get_special(???)
+static char get_special(???)
 {
     /*
      Write some code to Extract the special token.  Most are single-character
      some are double-character.  Set the token appropriately.
      */
 }
-static char* downshift_word(char *ch)
+static char downshift_word(char *ch)
 {
+    while(ch != null)
+    {
+        if(ch == 65 && char == 90)
+        {
+            ch = ch + 32;
+            
+        }
+        ch* = ch* +1;
+    }
+    
     /*
      Make all of the characters in the incoming word lower case.
      */
