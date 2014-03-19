@@ -64,9 +64,12 @@ void init_scanner(FILE *source_file, char source_name[], char date[])
     strcpy(src_name, source_name);
     strcpy(todays_date, date);
     
+    
+    char_table[ch.get_token()];
+    
     /*******************
      initialize character table, this table is useful for identifying what type of character 
-     we are looking at by setting our array up to be a copy the ascii table.  Since C thinks of 
+     we are looking at by setting our array up to be a copy the ascii table.  Since C thinks of
      a char as like an int you can use ch in get_token as an index into the table.
      *******************/
     
@@ -94,13 +97,33 @@ Token* get_token()
     char ch; //This can be the current character you are examining during scanning.
     char token_string[MAX_TOKEN_STRING_LENGTH]; //Store your token here as you build it.
     char* token_ptr = token_string; //write some code to point this to the beginning of token_string
-    ???;  //I am missing the most important variable in the function, what is it?  Hint: what should I return?
+    Token* newToken;  //I am missing the most important variable in the function, what is it?  Hint: what should I return?
     
     skip_blanks(ch); //1. Skip past all of the blanks
-    //2.  figure out which case you are dealing with LETTER, DIGIT, QUOTE, EOF, or special, by examining ch
+    
+    if(ch == LETTER)
+    {
+        get_char();
+    }
+    else if(ch == DIGIT)
+    {
+        get_number(ch);
+    }
+    else if(ch == QUOTE)
+    {
+        get_word(ch);
+    }
+    else if(ch == EOF)
+    {
+        get_char(token_ptr);
+    }
+    else if(ch == SPECIAL)
+    {
+        
+    }//2.  figure out which case you are dealing with LETTER, DIGIT, QUOTE, EOF, or special, by examining ch
     //3.  Call the appropriate function to deal with the cases in 2.
     
-    return token_ptr; //What should be returned here?
+    return newToken; //What should be returned here?
 }
 static char get_char(char *ch)
 {
