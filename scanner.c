@@ -15,11 +15,11 @@
  return types for functions with ???.
  ******************/
 static char get_char(char *ch);
-static char skip_comment(char *ch);
-static char skip_blanks(???);
-static char* get_word(???);
-static int get_number(???);
-static char* get_string(???);
+static char* skip_comment(char* ch);
+static char* skip_blanks(char );
+static char get_word(char );
+static int get_number(int  );
+static char get_string(char );
 static ??? get_special(???);
 static ??? downshift_word(???);
 static BOOLEAN is_reserved_word(???);
@@ -93,23 +93,19 @@ Token* get_token()
 {
     char ch; //This can be the current character you are examining during scanning.
     char token_string[MAX_TOKEN_STRING_LENGTH]; //Store your token here as you build it.
-    char *token_ptr = ???; //write some code to point this to the beginning of token_string
+    char* token_ptr = token_string; //write some code to point this to the beginning of token_string
     ???;  //I am missing the most important variable in the function, what is it?  Hint: what should I return?
     
-    //1.  Skip past all of the blanks
+    skip_blanks(ch); //1. Skip past all of the blanks
     //2.  figure out which case you are dealing with LETTER, DIGIT, QUOTE, EOF, or special, by examining ch
     //3.  Call the appropriate function to deal with the cases in 2.
     
-    return ???; //What should be returned here?
+    return token_ptr; //What should be returned here?
 }
 static char get_char(char *ch)
 {
-    int i = 0;
     
-    while(array[i] != '\n')
-    {
-        &ch = fread(array, , 1,src_file);
-    }
+    while(
     /*
      If at the end of the current line (how do you check for that?),
      we should call get source line.  If at the EOF (end of file) we should
@@ -120,8 +116,13 @@ static char get_char(char *ch)
      Write some code to set the character ch to the next character in the buffer
      */
 }
-static char* skip_blanks(???)
+static char* skip_blanks(char ch)
 {
+    
+    while()
+    {
+        
+    }
     /*
      Write some code to skip past the blanks in the program and return a pointer
      to the first non blank character
