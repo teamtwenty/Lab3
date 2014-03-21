@@ -192,6 +192,10 @@ static char get_word(char ch)
 }
 static int get_number(???)
 {
+    if (ch >= 48 && ch <= 57 )
+     {
+       
+     }   
     /*
      Write some code to Extract the number and convert it to a literal number.
      */
